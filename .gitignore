@@ -1,0 +1,61 @@
+# Fichiers de modèles et embeddings (trop volumineux pour GitHub)
+model_cache/
+*.safetensors
+*.npy
+*.index
+*.pkl
+
+# Fichiers CSV volumineux
+BD quest_resp medecine/aircraft-database-complete-2022-11-raw.csv
+BD quest_resp medecine/aircraft-database-complete-2022-11-cleaned.csv
+BD quest_resp medecine/MedicalQuestionAnswering.csv
+archive1/MedicalQuestionAnswering.csv
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Environnements virtuels
+venv/
+ENV/
+env/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Résultats d'évaluation
+evaluation_baseline.csv
+evaluation_baseline_summary.json
+
+# Données générées
+docs_medical.csv
+embeddings_medical.npy
+medical_faiss.index
+index_metadata.pkl

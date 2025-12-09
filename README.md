@@ -12,12 +12,33 @@
 - [Présentation](#-présentation)
 - [Architecture](#-architecture)
 - [Fonctionnalités](#-fonctionnalités)
+- [Installation Rapide](#-installation-rapide)
 - [Installation](#-installation)
 - [Utilisation](#-utilisation)
 - [Performance](#-performance)
 - [Technologies](#-technologies)
 - [Structure du Projet](#-structure-du-projet)
 - [Démo Vidéo](#-démo-vidéo)
+
+## ⚡ Installation Rapide
+
+```bash
+# 1. Cloner le projet
+git clone https://github.com/OUEDRAOGOFred/Tp_spark_base_de_donn-e_vectorielle.git
+cd Tp_spark_base_de_donn-e_vectorielle
+
+# 2. Installer les dépendances
+pip install -r requirements.txt
+
+# 3. Préparer les données et construire l'index
+python prepare_corpus.py
+python build_index.py
+
+# 4. Lancer l'application
+streamlit run app_final.py
+```
+
+📖 **Guide complet** : Voir [INSTALLATION.md](INSTALLATION.md) pour plus de détails
 
 ## 🎯 Présentation
 

@@ -27,6 +27,28 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Fonction pour obtenir le template Plotly adapté au thème
+def get_plotly_template():
+    """Retourne le template Plotly qui s'adapte au thème Streamlit"""
+    return {
+        'layout': {
+            'plot_bgcolor': 'rgba(0,0,0,0)',
+            'paper_bgcolor': 'rgba(0,0,0,0)',
+            'font': {'size': 12},
+            'title_font': {'size': 16},
+            'xaxis': {
+                'gridcolor': 'rgba(128,128,128,0.2)',
+                'zerolinecolor': 'rgba(128,128,128,0.3)',
+                'showgrid': True
+            },
+            'yaxis': {
+                'gridcolor': 'rgba(128,128,128,0.2)',
+                'zerolinecolor': 'rgba(128,128,128,0.3)',
+                'showgrid': True
+            }
+        }
+    }
+
 # CSS personnalisé moderne
 st.markdown("""
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -359,14 +381,15 @@ def plot_embeddings_umap(embeddings, corpus, query_embedding=None, results_indic
                 width=800, height=600
             )
             
-            # Mise à jour pour mode clair
+            # Template adapté au thème Streamlit
+            template = get_plotly_template()
             fig.update_layout(
-                plot_bgcolor='white',
-                paper_bgcolor='white',
-                font=dict(color='#1f2937', size=12),
-                title_font=dict(size=16, color='#1f2937', family='Inter'),
-                xaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db'),
-                yaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db')
+                plot_bgcolor=template['layout']['plot_bgcolor'],
+                paper_bgcolor=template['layout']['paper_bgcolor'],
+                font=template['layout']['font'],
+                title_font=template['layout']['title_font'],
+                xaxis=template['layout']['xaxis'],
+                yaxis=template['layout']['yaxis']
             )
             
             # Ajouter la requête si présente
@@ -414,17 +437,18 @@ def plot_score_distribution(results):
             opacity=0.8
         ))
     
+    template = get_plotly_template()
     fig.update_layout(
         title="Distribution des Scores par Rang",
         xaxis_title="Rang",
         yaxis_title="Score",
         height=400,
-        plot_bgcolor='white',
-        paper_bgcolor='white',
-        font=dict(color='#1f2937', size=12),
-        title_font=dict(size=16, color='#1f2937', family='Inter'),
-        xaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db'),
-        yaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db')
+        plot_bgcolor=template['layout']['plot_bgcolor'],
+        paper_bgcolor=template['layout']['paper_bgcolor'],
+        font=template['layout']['font'],
+        title_font=template['layout']['title_font'],
+        xaxis=template['layout']['xaxis'],
+        yaxis=template['layout']['yaxis']
     )
     
     return fig
@@ -439,17 +463,18 @@ def plot_category_distribution(corpus):
         hole=0.3,
         marker=dict(
             colors=['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6', '#f97316'],
-            line=dict(color='white', width=2)
+            line=dict(color='rgba(255,255,255,0.5)', width=2)
         )
     )])
     
+    template = get_plotly_template()
     fig.update_layout(
         title="Distribution des Catégories Médicales",
         height=400,
-        plot_bgcolor='white',
-        paper_bgcolor='white',
-        font=dict(color='#1f2937', size=12),
-        title_font=dict(size=16, color='#1f2937', family='Inter')
+        plot_bgcolor=template['layout']['plot_bgcolor'],
+        paper_bgcolor=template['layout']['paper_bgcolor'],
+        font=template['layout']['font'],
+        title_font=template['layout']['title_font']
     )
     
     return fig
@@ -798,17 +823,18 @@ def main():
                     marker_color='#10b981',
                     opacity=0.8
                 )])
+                template = get_plotly_template()
                 fig_complexity.update_layout(
                     title="Distribution par Complexité",
                     xaxis_title="Complexité",
                     yaxis_title="Nombre de Documents",
                     height=400,
-                    plot_bgcolor='white',
-                    paper_bgcolor='white',
-                    font=dict(color='#1f2937', size=12),
-                    title_font=dict(size=16, color='#1f2937', family='Inter'),
-                    xaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db'),
-                    yaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db')
+                    plot_bgcolor=template['layout']['plot_bgcolor'],
+                    paper_bgcolor=template['layout']['paper_bgcolor'],
+                    font=template['layout']['font'],
+                    title_font=template['layout']['title_font'],
+                    xaxis=template['layout']['xaxis'],
+                    yaxis=template['layout']['yaxis']
                 )
                 st.plotly_chart(fig_complexity, use_container_width=True)
             
@@ -822,17 +848,18 @@ def main():
                 opacity=0.8
             ))
             
+            template = get_plotly_template()
             fig_lengths.update_layout(
                 title="Distribution des Longueurs de Réponses",
                 xaxis_title="Longueur (caractères)",
                 yaxis_title="Fréquence",
                 height=400,
-                plot_bgcolor='white',
-                paper_bgcolor='white',
-                font=dict(color='#1f2937', size=12),
-                title_font=dict(size=16, color='#1f2937', family='Inter'),
-                xaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db'),
-                yaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db')
+                plot_bgcolor=template['layout']['plot_bgcolor'],
+                paper_bgcolor=template['layout']['paper_bgcolor'],
+                font=template['layout']['font'],
+                title_font=template['layout']['title_font'],
+                xaxis=template['layout']['xaxis'],
+                yaxis=template['layout']['yaxis']
             )
             
             st.plotly_chart(fig_lengths, use_container_width=True)

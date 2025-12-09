@@ -359,6 +359,16 @@ def plot_embeddings_umap(embeddings, corpus, query_embedding=None, results_indic
                 width=800, height=600
             )
             
+            # Mise à jour pour mode clair
+            fig.update_layout(
+                plot_bgcolor='white',
+                paper_bgcolor='white',
+                font=dict(color='#1f2937', size=12),
+                title_font=dict(size=16, color='#1f2937', family='Inter'),
+                xaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db'),
+                yaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db')
+            )
+            
             # Ajouter la requête si présente
             if query_embedding is not None:
                 query_2d = reducer.transform(query_embedding)
@@ -391,7 +401,8 @@ def plot_score_distribution(results):
         x=list(range(1, len(scores) + 1)),
         y=scores,
         name='FAISS Score',
-        marker_color='lightblue'
+        marker_color='#3b82f6',
+        opacity=0.8
     ))
     
     if cross_scores:
@@ -399,14 +410,21 @@ def plot_score_distribution(results):
             x=list(range(1, len(cross_scores) + 1)),
             y=cross_scores,
             name='Cross-Encoder Score',
-            marker_color='lightcoral'
+            marker_color='#ef4444',
+            opacity=0.8
         ))
     
     fig.update_layout(
         title="Distribution des Scores par Rang",
         xaxis_title="Rang",
         yaxis_title="Score",
-        height=400
+        height=400,
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        font=dict(color='#1f2937', size=12),
+        title_font=dict(size=16, color='#1f2937', family='Inter'),
+        xaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db'),
+        yaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db')
     )
     
     return fig
@@ -418,12 +436,20 @@ def plot_category_distribution(corpus):
     fig = go.Figure(data=[go.Pie(
         labels=category_counts.index,
         values=category_counts.values,
-        hole=0.3
+        hole=0.3,
+        marker=dict(
+            colors=['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899', '#14b8a6', '#f97316'],
+            line=dict(color='white', width=2)
+        )
     )])
     
     fig.update_layout(
         title="Distribution des Catégories Médicales",
-        height=400
+        height=400,
+        plot_bgcolor='white',
+        paper_bgcolor='white',
+        font=dict(color='#1f2937', size=12),
+        title_font=dict(size=16, color='#1f2937', family='Inter')
     )
     
     return fig
@@ -769,13 +795,20 @@ def main():
                 fig_complexity = go.Figure(data=[go.Bar(
                     x=complexity_counts.index,
                     y=complexity_counts.values,
-                    marker_color='lightgreen'
+                    marker_color='#10b981',
+                    opacity=0.8
                 )])
                 fig_complexity.update_layout(
                     title="Distribution par Complexité",
                     xaxis_title="Complexité",
                     yaxis_title="Nombre de Documents",
-                    height=400
+                    height=400,
+                    plot_bgcolor='white',
+                    paper_bgcolor='white',
+                    font=dict(color='#1f2937', size=12),
+                    title_font=dict(size=16, color='#1f2937', family='Inter'),
+                    xaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db'),
+                    yaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db')
                 )
                 st.plotly_chart(fig_complexity, use_container_width=True)
             
@@ -785,15 +818,21 @@ def main():
             fig_lengths.add_trace(go.Histogram(
                 x=corpus['answer_length'],
                 name='Réponses',
-                marker_color='lightblue',
-                opacity=0.7
+                marker_color='#3b82f6',
+                opacity=0.8
             ))
             
             fig_lengths.update_layout(
                 title="Distribution des Longueurs de Réponses",
                 xaxis_title="Longueur (caractères)",
                 yaxis_title="Fréquence",
-                height=400
+                height=400,
+                plot_bgcolor='white',
+                paper_bgcolor='white',
+                font=dict(color='#1f2937', size=12),
+                title_font=dict(size=16, color='#1f2937', family='Inter'),
+                xaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db'),
+                yaxis=dict(gridcolor='#e5e7eb', zerolinecolor='#d1d5db')
             )
             
             st.plotly_chart(fig_lengths, use_container_width=True)

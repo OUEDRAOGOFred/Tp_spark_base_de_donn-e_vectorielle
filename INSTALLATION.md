@@ -55,7 +55,7 @@ python build_index.py
 
 ### Option A : Interface Streamlit (Recommandée)
 ```bash
-streamlit run app_final.py
+streamlit run app_streamlit_v2.py
 ```
 L'application s'ouvrira automatiquement dans votre navigateur à l'adresse : `http://localhost:8501`
 
@@ -146,7 +146,7 @@ model.save('model_cache')
 ├── prepare_corpus.py          # Préparation des données (Pandas)
 ├── prepare_corpus_spark.py    # Préparation des données (Spark)
 ├── build_index.py             # Construction de l'index FAISS
-├── app_final.py               # Interface Streamlit
+├── app_streamlit_v2.py        # Interface Streamlit
 ├── api_medical_v2.py          # API REST
 ├── evaluate_search.py         # Évaluation du système
 ├── requirements.txt           # Dépendances Python
@@ -165,7 +165,7 @@ model.save('model_cache')
 
 Pour modifier les paramètres du système, éditez les variables dans les fichiers :
 - `build_index.py` : Paramètres de l'index FAISS
-- `app_final.py` : Configuration de l'interface
+- `app_streamlit_v2.py` : Configuration de l'interface
 - `api_medical_v2.py` : Configuration de l'API
 
 ## 🤝 Contribution

@@ -35,7 +35,7 @@ python prepare_corpus.py
 python build_index.py
 
 # 4. Lancer l'application
-streamlit run app_final.py
+streamlit run app_streamlit_v2.py
 ```
 
 📖 **Guide complet** : Voir [INSTALLATION.md](INSTALLATION.md) pour plus de détails

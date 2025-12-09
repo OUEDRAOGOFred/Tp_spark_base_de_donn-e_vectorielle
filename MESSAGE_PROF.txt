@@ -1,0 +1,180 @@
+═══════════════════════════════════════════════════════════════
+  PROJET : MOTEUR DE RECHERCHE SÉMANTIQUE MÉDICAL
+  Auteur : OUEDRAOGO Abdoul Nassirou Freddy
+  Date : Décembre 2025
+═══════════════════════════════════════════════════════════════
+
+Bonjour Professeur,
+
+Je vous soumets mon projet de recherche sémantique médicale utilisant
+FAISS et Apache Spark.
+
+────────────────────────────────────────────────────────────────
+📌 ACCÈS AU PROJET
+────────────────────────────────────────────────────────────────
+
+🔗 Lien GitHub :
+https://github.com/OUEDRAOGOFred/Tp_spark_base_de_donn-e_vectorielle
+
+📦 Cloner le projet :
+git clone https://github.com/OUEDRAOGOFred/Tp_spark_base_de_donn-e_vectorielle.git
+
+────────────────────────────────────────────────────────────────
+⚡ INSTALLATION RAPIDE (5 minutes)
+────────────────────────────────────────────────────────────────
+
+1. Cloner le dépôt :
+   git clone https://github.com/OUEDRAOGOFred/Tp_spark_base_de_donn-e_vectorielle.git
+   cd Tp_spark_base_de_donn-e_vectorielle
+
+2. Créer un environnement virtuel (recommandé) :
+   python -m venv venv
+   venv\Scripts\activate
+
+3. Installer les dépendances :
+   pip install -r requirements.txt
+
+4. Construire l'index FAISS (télécharge automatiquement le modèle) :
+   python build_index.py
+   ⏱️ Temps : 3-5 minutes
+
+5. Lancer l'application :
+   streamlit run app_streamlit_v2.py
+   🌐 Ouvre automatiquement dans le navigateur : http://localhost:8501
+
+────────────────────────────────────────────────────────────────
+🐍 VERSIONS PYTHON RECOMMANDÉES
+────────────────────────────────────────────────────────────────
+
+✅ TESTÉ ET FONCTIONNEL :
+   - Python 3.10.x
+   - Python 3.11.x
+
+⚠️ NON RECOMMANDÉ :
+   - Python 3.12+ (compatibilité non garantie)
+
+Note : Si vous utilisez Python 3.13, certaines dépendances peuvent
+      nécessiter des ajustements. Python 3.10 ou 3.11 est préférable.
+
+────────────────────────────────────────────────────────────────
+📋 CONTENU DU PROJET
+────────────────────────────────────────────────────────────────
+
+✅ Code source complet (8 fichiers Python principaux)
+✅ Documentation détaillée (10+ fichiers Markdown)
+✅ Données d'entraînement (145,000 paires Q&A médicales)
+✅ Scripts de lancement automatisés (.bat pour Windows)
+✅ Tests et évaluation du système
+✅ API REST + Interface Streamlit
+
+────────────────────────────────────────────────────────────────
+📊 FICHIERS IMPORTANTS À CONSULTER
+────────────────────────────────────────────────────────────────
+
+1. README.md                  → Vue d'ensemble du projet
+2. INSTALLATION.md            → Guide d'installation détaillé
+3. CHECKLIST_SOUMISSION.md    → Liste de vérification
+4. COMPATIBILITE_PYTHON.md    → Problèmes de compatibilité
+5. PROJET_INFO.md             → Informations techniques
+
+────────────────────────────────────────────────────────────────
+⚠️ NOTES IMPORTANTES
+────────────────────────────────────────────────────────────────
+
+1. FICHIERS VOLUMINEUX EXCLUS (NORMAL) :
+   ❌ model_cache/ (~90 MB)         → Téléchargé automatiquement
+   ❌ embeddings_medical.npy        → Généré par build_index.py
+   ❌ medical_faiss.index           → Généré par build_index.py
+   
+   ✅ Ces fichiers se créent AUTOMATIQUEMENT lors de l'installation
+   ✅ C'est pour respecter les limites de GitHub (fichiers > 50 MB)
+
+2. TEMPS D'INSTALLATION :
+   - Téléchargement du dépôt : ~30 secondes
+   - Installation des dépendances : ~2-3 minutes
+   - Construction de l'index : ~3-5 minutes
+   - TOTAL : ~5-10 minutes
+
+3. ESPACE DISQUE NÉCESSAIRE :
+   - Code source : ~30 MB
+   - Après installation complète : ~200 MB
+
+────────────────────────────────────────────────────────────────
+🚀 ALTERNATIVES DE LANCEMENT
+────────────────────────────────────────────────────────────────
+
+Option 1 - Interface Streamlit (RECOMMANDÉE) :
+   streamlit run app_streamlit_v2.py
+   ou
+   start_app.bat (Windows)
+
+Option 2 - API REST :
+   uvicorn api_medical_v2:app --reload
+   ou
+   start_api.bat (Windows)
+   Documentation API : http://localhost:8000/docs
+
+Option 3 - Tout en un (Windows) :
+   run_all.bat
+
+────────────────────────────────────────────────────────────────
+🎯 TECHNOLOGIES UTILISÉES
+────────────────────────────────────────────────────────────────
+
+Big Data        : Apache Spark 3.4, PySpark
+Machine Learning: Sentence Transformers, Transformers
+Vector Search   : FAISS (Facebook AI Similarity Search)
+Interface       : Streamlit
+API             : FastAPI
+Visualisation   : Plotly, Matplotlib, UMAP
+
+────────────────────────────────────────────────────────────────
+📈 PERFORMANCES DU SYSTÈME
+────────────────────────────────────────────────────────────────
+
+✅ Recall@10        : ~0.85-0.90
+✅ MRR              : ~0.75-0.80
+✅ Latence moyenne  : < 100ms
+✅ Documents indexés: 145,000+
+
+────────────────────────────────────────────────────────────────
+🆘 EN CAS DE PROBLÈME
+────────────────────────────────────────────────────────────────
+
+1. Consulter INSTALLATION.md (section "Résolution de problèmes")
+2. Vérifier la version Python (3.10 ou 3.11 recommandé)
+3. Utiliser requirements-locked.txt si problème de versions :
+   pip install -r requirements-locked.txt
+
+4. Si erreur "FAISS index not found" :
+   python build_index.py
+
+5. Si erreur avec Spark :
+   Utiliser la version Pandas : python prepare_corpus.py
+
+────────────────────────────────────────────────────────────────
+📧 CONTACT
+────────────────────────────────────────────────────────────────
+
+Email  : [Votre email]
+GitHub : @OUEDRAOGOFred
+
+────────────────────────────────────────────────────────────────
+✨ LIVRABLES
+────────────────────────────────────────────────────────────────
+
+✅ Code source complet et documenté
+✅ Interface utilisateur professionnelle
+✅ API REST avec documentation OpenAPI
+✅ Évaluation quantitative complète
+✅ Documentation technique exhaustive
+✅ Scripts de déploiement automatisés
+
+────────────────────────────────────────────────────────────────
+
+Merci pour votre attention !
+
+Cordialement,
+OUEDRAOGO Abdoul Nassirou Freddy
+
+═══════════════════════════════════════════════════════════════

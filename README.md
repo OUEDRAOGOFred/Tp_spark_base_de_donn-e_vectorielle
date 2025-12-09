@@ -22,19 +22,26 @@
 
 ## ⚡ Installation Rapide
 
+> **🐍 Python Requis** : Python 3.10 ou 3.11 recommandé pour une compatibilité optimale
+
 ```bash
 # 1. Cloner le projet
 git clone https://github.com/OUEDRAOGOFred/Tp_spark_base_de_donn-e_vectorielle.git
 cd Tp_spark_base_de_donn-e_vectorielle
 
-# 2. Installer les dépendances
+# 2. Créer un environnement virtuel (recommandé)
+python -m venv venv
+venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/Mac
+
+# 3. Installer les dépendances
 pip install -r requirements.txt
 
-# 3. Préparer les données et construire l'index
+# 4. Préparer les données et construire l'index
 python prepare_corpus.py
 python build_index.py
 
-# 4. Lancer l'application
+# 5. Lancer l'application
 streamlit run app_streamlit_v2.py
 ```
 
